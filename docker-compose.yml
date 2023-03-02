@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27017:27017
+
+  mongo-migrations:
+    build: ./app
+    command: ./manage.py migrate
+    depends_on:
+      - mongo
+  
+  mongo-dumpdata:
+    build: ./app
+    command: python manage.py dumpdata --indent 4 --exclude auth.permission --exclude contenttypes --output /data/init.json
+    volumes:
+      - ./app/airline_server/fixtures:/data
+    depends_on:
+      - mongo
+    
+  mongo-loaddata:
+    build: ./app
+    command: python manage.py loaddata airline_server/fixtures/init.json
+    depends_on:
+      - mongo
+
+  mongo-makemigrations:
+    build: ./app
+    command: python manage.py makemigrations airline_server
+      
+  app:
+    build: ./app
+    image: app:latest
+    container_name: app
+    restart: always
+    command: "python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    depends_on:
+      mongo:
+        condition: service_started
+
+volumes:
+  init:
