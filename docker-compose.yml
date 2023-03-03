@@ -10,7 +10,7 @@ services:
     ports:
       - 27017:27017
 
-  mongo-migrations:
+  mongo-migrate:
     build: ./app
     command: ./manage.py migrate
     depends_on:
