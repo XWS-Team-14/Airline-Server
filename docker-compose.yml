@@ -32,7 +32,11 @@ services:
 
   mongo-makemigrations:
     build: ./app
-    command: python manage.py makemigrations airline_server
+    command: python manage.py makemigrations
+    volumes:
+      - ./app/airline_server/migrations:/app/airline_server/migrations
+    depends_on:
+      - mongo
       
   app:
     build: ./app
@@ -45,6 +49,3 @@ services:
     depends_on:
       mongo:
         condition: service_started
-
-volumes:
-  init:
