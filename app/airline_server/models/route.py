@@ -13,5 +13,7 @@ class Route(models.Model):
         end_point (Place): Ending point of a Route
     """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    start_point = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='routes_start_points')
-    end_point = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='routes_end_points')
+    start_point = models.ForeignKey(Place, on_delete=models.CASCADE, null=False, blank=False,
+                                    related_name='routes_start_points')
+    end_point = models.ForeignKey(Place, on_delete=models.CASCADE, null=False, blank=False,
+                                  related_name='routes_end_points')

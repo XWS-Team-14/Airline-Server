@@ -16,8 +16,8 @@ class Flight(models.Model):
         number_of_passengers (int): Number of passengers - flight tickets sold
     """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    route = models.ForeignKey(Route, on_delete=models.CASCADE)
-    date_of_departure = models.DateTimeField()
-    ticket_price = models.FloatField()
-    number_of_seats = models.IntegerField()
-    number_of_passengers = models.IntegerField(default=0)
+    route = models.ForeignKey(Route, on_delete=models.CASCADE, null=False, blank=False)
+    date_of_departure = models.DateTimeField(null=False, blank=False)
+    ticket_price = models.FloatField(null=False, blank=False)
+    number_of_seats = models.IntegerField(null=False, blank=False)
+    number_of_passengers = models.IntegerField(default=0, null=False, blank=False)

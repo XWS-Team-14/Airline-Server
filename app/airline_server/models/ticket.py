@@ -14,7 +14,7 @@ class Ticket(models.Model):
         flight (Flight): Flight for which ticket is bound
     """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tickets')
-    flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, related_name='tickets')
+    flight = models.ForeignKey(Flight, on_delete=models.CASCADE, null=False, blank=False, related_name='tickets')
 
 
