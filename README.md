@@ -35,7 +35,6 @@ Your `app` is now ready to be used with the initial data provided
 
 ### 2.  Make migrations
 * **Up** `mongo-makemigrations`
-* **Rebuild** the project
  
 Your migrations are created and documented automatically
 ### 3. Adding more initial data
