@@ -11,13 +11,15 @@ services:
       - 27017:27017
 
   mongo-migrate:
-    build: ./app
+    image: app:latest
     command: ./manage.py migrate
+    volumes:
+      - ./app/airline_server/migrations:/app/airline_server/migrations
     depends_on:
       - mongo
   
   mongo-dumpdata:
-    build: ./app
+    image: app:latest
     command: python manage.py dumpdata --indent 4 --exclude auth.permission --exclude contenttypes --output /data/init.json
     volumes:
       - ./app/airline_server/fixtures:/data
@@ -25,13 +27,13 @@ services:
       - mongo
     
   mongo-loaddata:
-    build: ./app
+    image: app:latest
     command: python manage.py loaddata airline_server/fixtures/init.json
     depends_on:
       - mongo
 
   mongo-makemigrations:
-    build: ./app
+    image: app:latest
     command: python manage.py makemigrations
     volumes:
       - ./app/airline_server/migrations:/app/airline_server/migrations
