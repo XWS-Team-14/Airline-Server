@@ -1,7 +1,7 @@
 # Project startup
 # 1. Install docker and docker-compose
 ### Linux
-`sudo pacman -Syu docker`
+`sudo pacman -Syu docker` <br/>
 `sudo pacman -Syu docker-compose`
 ### Windows 
 Install app from official website <a href="https://docs.docker.com/desktop/install/windows-install/">guide</a>
@@ -9,18 +9,19 @@ Install app from official website <a href="https://docs.docker.com/desktop/insta
 # 2. Build a docker images
 Position yourself in the project root folder
 ### Linux
-`sudo docker-compose build`
+`sudo docker-compose build` <br/>
 Recommended to use a docker visualizer like `lazydocker` for an easier time
 ### Windows
 Use PowerShell or follow the official guide on the docker website
 
 # 3. Docker Services
 ## Docker stuff
-`app` - Starts main django aplication
-`mongo` - Starts mongo database
-`mongo-dumpdata` - Dumps database data into json file in the fixtures folder (overwrites current file)
-`mongo-loaddata` - Load data from json file in the fixtures folder (overwrites the current database)
-`mongo-migrate` - Applies changes made to your model and migrates them
+- `app` - Starts main django aplication
+- `mongo` - Starts mongo database
+- `mongo-dumpdata` - Dumps database data into json file in the fixtures folder (overwrites current file)
+- `mongo-loaddata` - Load data from json file in the fixtures folder (overwrites the current database)
+- `mongo-makemigrations` - Creates migrate files and saves
+- `mongo-migrate` - Applies changes made to your model and migrates them
 
 
 ## Use cases
