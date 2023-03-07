@@ -30,6 +30,10 @@ ALLOWED_HOSTS = [
     '*'
 ]
 
+# REST Framework configs
+REST_FRAMEWORK = {
+    'DATETIME_FORMAT': '%d.%m.%Y %H:%M',
+}
 
 # Application definition
 
