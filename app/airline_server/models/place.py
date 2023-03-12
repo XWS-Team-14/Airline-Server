@@ -8,7 +8,11 @@ class Place(models.Model):
 
     Attributes:
         id (UUID): Auto generated uuid used to uniquely indentify object
-        name (str): Name of the place
+        country (str): Name of the country where the place is located
+        airport_city (str): City where airport is located at
+        airport_name (str): Name of the airport
     """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=100, null=False, blank=False)
+    country = models.CharField(max_length=100, null=False, blank=False)
+    airport_city = models.CharField(max_length=100, null=False, blank=False)
+    airport_name = models.CharField(max_length=100, null=False, blank=False)
