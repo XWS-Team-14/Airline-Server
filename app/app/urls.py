@@ -32,16 +32,16 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Place crud urls
-    path('place/', PlaceCreateView.as_view(), name='place-create'),
-    path('place/<uuid:id>/', PlaceDetailView.as_view(), name='place-detail'),
-    path('place/<uuid:id>/', PlaceUpdateView.as_view(), name='place-update'),
-    path('place/<uuid:id>/', PlaceDeleteView.as_view(), name='place-delete'),
-    path('place/all/', PlaceListView.as_view(), name='place-all'),
+    path('api/place/', PlaceCreateView.as_view(), name='place-create'),
+    path('api/place/<uuid:id>/', PlaceDetailView.as_view(), name='place-detail'),
+    path('api/place/<uuid:id>/', PlaceUpdateView.as_view(), name='place-update'),
+    path('api/place/<uuid:id>/', PlaceDeleteView.as_view(), name='place-delete'),
+    path('api/place/all/', PlaceListView.as_view(), name='place-all'),
 
     # Route crud urls
-    path('route/', RouteCreateView.as_view(), name='route-create'),
-    path('route/<uuid:id>/', RouteDetailView.as_view(), name='route-detail'),
-    path('route/<uuid:id>/', RouteUpdateView.as_view(), name='route-update'),
-    path('route/<uuid:id>/', RouteDeleteView.as_view(), name='route-delete'),
-    path('route/all/', RouteListView.as_view(), name='route-all')
+    path('api/route/', RouteCreateView.as_view(), name='route-create'),
+    path('api/route/<uuid:id>/', RouteDetailView.as_view(), name='route-detail'),
+    path('api/route/<uuid:id>/', RouteUpdateView.as_view(), name='route-update'),
+    path('api/route/<uuid:id>/', RouteDeleteView.as_view(), name='route-delete'),
+    path('api/route/all/', RouteListView.as_view(), name='route-all')
 ]
