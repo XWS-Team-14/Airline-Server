@@ -39,6 +39,9 @@ REST_FRAMEWORK = {
 
 INSTALLED_APPS = [
     "airline_server",
+
+    'rest_framework',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
