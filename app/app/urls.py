@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
 from airline_server.views import PlaceListView
 from airline_server.views import PlaceDetailView
 from airline_server.views import PlaceDeleteView
 from airline_server.views import PlaceCreateView
 from airline_server.views import PlaceUpdateView
+
+from airline_server.views import RouteListView
+from airline_server.views import RouteDetailView
+from airline_server.views import RouteCreateView
+from airline_server.views import RouteUpdateView
+from airline_server.views import RouteDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +36,12 @@ urlpatterns = [
     path('place/<uuid:id>/', PlaceDetailView.as_view(), name='place-detail'),
     path('place/<uuid:id>/', PlaceUpdateView.as_view(), name='place-update'),
     path('place/<uuid:id>/', PlaceDeleteView.as_view(), name='place-delete'),
-    path('place/all/', PlaceListView.as_view(), name='place-all')
+    path('place/all/', PlaceListView.as_view(), name='place-all'),
+
+    # Route crud urls
+    path('route/', RouteCreateView.as_view(), name='route-create'),
+    path('route/<uuid:id>/', RouteDetailView.as_view(), name='route-detail'),
+    path('route/<uuid:id>/', RouteUpdateView.as_view(), name='route-update'),
+    path('route/<uuid:id>/', RouteDeleteView.as_view(), name='route-delete'),
+    path('route/all/', RouteListView.as_view(), name='route-all')
 ]
