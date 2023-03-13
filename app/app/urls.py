@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from airline_server.views import UserListView, UserDetailView, UserUpdateView, UserDeleteView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('user/all', UserListView.as_view(), name='user-all'),
+    path('user/<uuid:id>/', UserDetailView.as_view(), name='user-detail'),
+    path('route/<uuid:id>/', UserUpdateView.as_view(), name='user-update'),
+    path('route/<uuid:id>/', UserDeleteView.as_view(), name='user-delete'),
 ]
