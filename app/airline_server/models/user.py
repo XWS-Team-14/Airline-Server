@@ -32,11 +32,14 @@ class UserManager(BaseUserManager):
 
         return self._create_user(email, password, **extra_fields)
 
+
 class User(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True, error_messages={
-            "unique": _("A user with that email address already exists."),
-        },)
+        "unique": _("A user with that email address already exists."),
+    }, )
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+    objects = UserManager()

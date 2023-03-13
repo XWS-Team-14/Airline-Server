@@ -17,11 +17,17 @@ from django.contrib import admin
 from django.urls import path
 
 from airline_server.views import UserListView, UserDetailView, UserUpdateView, UserDeleteView
+from airline_server.views.auth_views import RegisterView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('user/all', UserListView.as_view(), name='user-all'),
-    path('user/<uuid:id>/', UserDetailView.as_view(), name='user-detail'),
-    path('route/<uuid:id>/', UserUpdateView.as_view(), name='user-update'),
-    path('route/<uuid:id>/', UserDeleteView.as_view(), name='user-delete'),
+    path('api/admin/', admin.site.urls),
+
+    # User views
+    path('api/user/all', UserListView.as_view(), name='user-all'),
+    path('api/user/<uuid:id>/', UserDetailView.as_view(), name='user-detail'),
+    path('api/user/<uuid:id>/', UserUpdateView.as_view(), name='user-update'),
+    path('api/user/<uuid:id>/', UserDeleteView.as_view(), name='user-delete'),
+
+    # Auth views
+    path('api/auth/register/', RegisterView.as_view(), name='auth_register'),
 ]
