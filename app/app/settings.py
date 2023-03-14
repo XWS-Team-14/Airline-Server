@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "airline_server",
 
     'rest_framework',
+    'django_filters',
     
     'django.contrib.admin',
     'django.contrib.auth',
