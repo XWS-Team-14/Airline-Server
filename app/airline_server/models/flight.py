@@ -1,4 +1,5 @@
 import uuid
+import datetime
 
 from django.db import models
 
@@ -22,3 +23,12 @@ class Flight(models.Model):
     ticket_price = models.FloatField(null=False, blank=False)
     number_of_seats = models.IntegerField(null=False, blank=False)
     number_of_passengers = models.IntegerField(default=0, null=False, blank=False)
+
+    def get_status(self):
+        """Calculates if it's possible to book the flight
+
+        Takes into the account date and number of spaces left
+
+        """
+        return datetime.datetime.now().timestamp() < self.date_of_departure.timestamp() \
+            and self.number_of_seats > self.number_of_passengers

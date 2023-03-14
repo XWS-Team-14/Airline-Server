@@ -31,13 +31,7 @@ class SearchFlightOutputSerializer(serializers.ModelSerializer):
         return obj.ticket_price * obj.number_of_passengers
 
     def get_status(self, obj):
-        """Calculates if it's possible to book the flight
-
-        Takes into the account date and number of spaces left
-
-        """
-        return datetime.datetime.now().timestamp() < obj.date_of_departure.timestamp() \
-            and obj.number_of_seats > obj.number_of_passengers
+        return obj.get_status()
 
 
 
