@@ -16,17 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from airline_server.views import PlaceListView
-from airline_server.views import PlaceDetailView
-from airline_server.views import PlaceDeleteView
 from airline_server.views import PlaceCreateView
+from airline_server.views import PlaceDeleteView
+from airline_server.views import PlaceDetailView
+from airline_server.views import PlaceListView
 from airline_server.views import PlaceUpdateView
-
-from airline_server.views import RouteListView
-from airline_server.views import RouteDetailView
 from airline_server.views import RouteCreateView
-from airline_server.views import RouteUpdateView
 from airline_server.views import RouteDeleteView
+from airline_server.views import RouteDetailView
+from airline_server.views import RouteListView
+from airline_server.views import RouteUpdateView
+from airline_server.views import SearchList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -43,5 +43,8 @@ urlpatterns = [
     path('api/route/<uuid:id>/', RouteDetailView.as_view(), name='route-detail'),
     path('api/route/<uuid:id>/', RouteUpdateView.as_view(), name='route-update'),
     path('api/route/<uuid:id>/', RouteDeleteView.as_view(), name='route-delete'),
-    path('api/route/all/', RouteListView.as_view(), name='route-all')
+    path('api/route/all/', RouteListView.as_view(), name='route-all'),
+
+    # Flight Search
+    path('api/search/', SearchList.as_view(), name='search-flights'),
 ]
