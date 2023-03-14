@@ -26,8 +26,7 @@ class SearchFlightFilter(django_filters.FilterSet):
         """
         chosen_date_start = datetime.datetime.strptime(str(value), "%Y-%m-%d")
         chosen_date_end = chosen_date_start.replace(hour=23, minute=59, second=59)
-        print(datetime.datetime.now().today())
-        return queryset.filter(date_of_departure__lte=chosen_date_start).filter(date_of_departure__gte=chosen_date_end)
+        return queryset.filter(date_of_departure__gte=chosen_date_start).filter(date_of_departure__lte=chosen_date_end)
 
     class Meta:
         model = Flight
