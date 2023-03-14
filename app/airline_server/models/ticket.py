@@ -1,8 +1,9 @@
 import uuid
 
 from django.db import models
-from .user import User
+
 from .flight import Flight
+from .user import User
 
 
 class Ticket(models.Model):
