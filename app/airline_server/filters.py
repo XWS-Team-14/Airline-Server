@@ -15,7 +15,7 @@ class SearchFlightFilter(django_filters.FilterSet):
     date = django_filters.DateFilter(field_name='date_of_departure', method='filter_by_date')
     start_point = django_filters.UUIDFilter(field_name='route__start_point', lookup_expr='exact')
     end_point = django_filters.UUIDFilter(field_name='route__end_point', lookup_expr='exact')
-    max_number_of_passengers = django_filters.NumberFilter(field_name='number_of_passengers', lookup_expr='lt')
+    space_needed = django_filters.NumberFilter(field_name='number_of_free_spaces', lookup_expr='gte')
 
     def filter_by_date(self, queryset, name, value):
         """Hack to filter datetime by date
@@ -30,5 +30,4 @@ class SearchFlightFilter(django_filters.FilterSet):
 
     class Meta:
         model = Flight
-        fields = ['date', 'start_point', 'end_point', 'max_number_of_passengers']
-
+        fields = ['date', 'start_point', 'end_point', 'space_needed']

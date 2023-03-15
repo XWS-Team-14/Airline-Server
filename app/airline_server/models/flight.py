@@ -15,14 +15,14 @@ class Flight(models.Model):
         date_of_departure (date): Date formatted like hh:mm
         ticket_price (float): Float value of a tickets price in euros
         number_of_seats (int): Number of seats - flight tickets available in total
-        number_of_passengers (int): Number of passengers - flight tickets sold
+        number_of_free_spaces (int): Number of passengers - flight tickets sold
     """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     route = models.ForeignKey(Route, on_delete=models.CASCADE, null=False, blank=False)
     date_of_departure = models.DateTimeField(null=False, blank=False)
     ticket_price = models.FloatField(null=False, blank=False)
     number_of_seats = models.IntegerField(null=False, blank=False)
-    number_of_passengers = models.IntegerField(default=0, null=False, blank=False)
+    number_of_free_spaces = models.IntegerField(null=False, blank=False)
 
     def get_status(self):
         """Calculates if it's possible to book the flight
@@ -31,4 +31,4 @@ class Flight(models.Model):
 
         """
         return datetime.datetime.now().timestamp() < self.date_of_departure.timestamp() \
-            and self.number_of_seats > self.number_of_passengers
+            and self.number_of_free_spaces > 0
