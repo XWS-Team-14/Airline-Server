@@ -18,6 +18,7 @@ ALLOWED_HOSTS = [
 ]
 
 INSTALLED_APPS = [
+    "corsheaders",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -34,7 +35,6 @@ INSTALLED_APPS = [
     "airline_server",
 ]
 
-
 REST_AUTH = {
     'USE_JWT': True,
     'JWT_AUTH_COOKIE': 'access-token',
@@ -46,6 +46,8 @@ REST_AUTH = {
 SITE_ID = 1
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,6 +56,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = False
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'app.urls'
 
@@ -92,7 +98,6 @@ DATABASES = {
         },
     }
 }
-
 
 AUTH_USER_MODEL = 'airline_server.User'
 
@@ -144,8 +149,6 @@ REST_AUTH_SERIALIZERS = {
     'REGISTER_SERIALIZER': 'airline_server.serializers.CustomRegisterSerializer'
 }
 
-
-
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "dj_rest_auth.jwt_auth.JWTCookieAuthentication",
@@ -155,7 +158,3 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 100,
     "COERCE_DECIMAL_TO_STRING": False,
 }
-
-
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
