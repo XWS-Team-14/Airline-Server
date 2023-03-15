@@ -16,16 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from airline_server.views import PlaceCreateView
-from airline_server.views import PlaceDeleteView
-from airline_server.views import PlaceDetailView
-from airline_server.views import PlaceListView
-from airline_server.views import PlaceUpdateView
-from airline_server.views import RouteCreateView
-from airline_server.views import RouteDeleteView
-from airline_server.views import RouteDetailView
-from airline_server.views import RouteListView
-from airline_server.views import RouteUpdateView
+from airline_server.views import PlaceCreateView, PlaceDeleteView, PlaceDetailView, PlaceListView, PlaceUpdateView
+from airline_server.views import RouteCreateView, RouteDeleteView, RouteDetailView, RouteListView, RouteUpdateView
 from airline_server.views import SearchList
 
 urlpatterns = [
