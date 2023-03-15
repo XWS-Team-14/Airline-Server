@@ -1,11 +1,8 @@
-from allauth.account.views import ConfirmEmailView
 from django.contrib import admin
-from django.urls import path, include, re_path
+from django.urls import include
+from django.urls import path
 
 from airline_server.views import UserListView, UserDetailView, UserUpdateView, UserDeleteView
-from airline_server.views.auth_views import RegisterView
-
-from django.urls import path, re_path
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
@@ -17,8 +14,7 @@ urlpatterns = [
     path('api/user/<uuid:id>/', UserDeleteView.as_view(), name='user-delete'),
 
     # Auth views
-    # path('api/auth/register/', RegisterView.as_view(), name='auth_register'),
-    path('accounts/', include('allauth.urls')),
+    path('api/accounts/', include('allauth.urls')),
     path('api/auth/', include('dj_rest_auth.urls')),
     path('api/auth/register/', include('dj_rest_auth.registration.urls')),
 ]
