@@ -1,0 +1,1 @@
+from .search_flights_tests import SearchFlightsTestCase

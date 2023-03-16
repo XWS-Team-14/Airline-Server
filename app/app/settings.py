@@ -17,6 +17,13 @@ ALLOWED_HOSTS = [
     '*'
 ]
 
+# REST Framework configs
+REST_FRAMEWORK = {
+    'DATETIME_FORMAT': '%d.%m.%Y %H:%M',
+}
+
+# Application definition
+
 INSTALLED_APPS = [
     "corsheaders",
     "django.contrib.admin",
@@ -30,6 +37,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "allauth",
     "allauth.account",
+    "django_filters",
     "dj_rest_auth",
     "dj_rest_auth.registration",
     "airline_server",

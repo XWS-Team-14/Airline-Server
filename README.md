@@ -22,6 +22,7 @@ Use PowerShell or follow the official guide on the docker website
 - `mongo-loaddata` - Load data from json file in the fixtures folder (overwrites the current database)
 - `mongo-makemigrations` - Creates migrate files and saves
 - `mongo-migrate` - Applies changes made to your model and migrates them
+- `run-tests` - Runs all tests that are in the project
 
 
 ## Use cases
