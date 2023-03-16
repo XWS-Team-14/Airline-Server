@@ -24,11 +24,11 @@ class Flight(models.Model):
     number_of_seats = models.IntegerField(null=False, blank=False)
     number_of_free_spaces = models.IntegerField(null=False, blank=False)
 
-    def get_status(self):
+    def get_status(self, space_needed):
         """Calculates if it's possible to book the flight
 
         Takes into the account date and number of spaces left
 
         """
         return datetime.datetime.now().timestamp() < self.date_of_departure.timestamp() \
-            and self.number_of_free_spaces > 0
+            and self.number_of_free_spaces >= space_needed

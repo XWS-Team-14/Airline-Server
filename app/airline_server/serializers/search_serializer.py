@@ -34,7 +34,12 @@ class SearchFlightOutputSerializer(serializers.ModelSerializer):
             return 0
 
     def get_status(self, obj):
-        return obj.get_status()
+        value = self.context.get('space_needed')
+        if value is not None and bool(value):
+            return obj.get_status(value)
+        else:
+            return obj.get_status(1)
+
 
 
 
