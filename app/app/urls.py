@@ -27,6 +27,7 @@ from airline_server.views import RouteDetailView
 from airline_server.views import RouteListView
 from airline_server.views import RouteUpdateView
 from airline_server.views import SearchList
+from airline_server.views.flight_views import FlightList, FlightCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,4 +48,8 @@ urlpatterns = [
 
     # Flight Search
     path('api/search/', SearchList.as_view(), name='search-flights'),
+
+    # Flight
+    path('api/flight/all', FlightList.as_view(), name='fight-all'),
+    path('api/flight/', FlightCreateView.as_view(), name='fight-create'),
 ]
