@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
+from rest_framework_simplejwt.views import TokenVerifyView
+from dj_rest_auth.jwt_auth import get_refresh_view
 
 
 from airline_server.views import PlaceCreateView, PlaceDeleteView, PlaceDetailView, PlaceListView, PlaceUpdateView
@@ -38,5 +40,6 @@ urlpatterns = [
     path('api/accounts/', include('allauth.urls')),
     path('api/auth/', include('dj_rest_auth.urls')),
     path('api/auth/register/', include('dj_rest_auth.registration.urls')),
+    path('api/auth/token/refresh/', get_refresh_view().as_view(), name='token_refresh'),
 
 ]
