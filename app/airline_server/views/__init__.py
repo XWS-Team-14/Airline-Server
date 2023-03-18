@@ -2,3 +2,4 @@ from .place_views import PlaceCreateView, PlaceDeleteView, PlaceDetailView, Plac
 from .route_views import RouteCreateView, RouteDeleteView, RouteDetailView, RouteListView, RouteUpdateView
 from .search_views import SearchList
 from .user_views import UserListView, UserDetailView, UserUpdateView, UserDeleteView
+from .ticket_views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, TicketPurchaseView
