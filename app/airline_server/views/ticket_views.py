@@ -37,7 +37,7 @@ class TicketUpdateView(generics.UpdateAPIView):
 
 class TicketPurchaseView(APIView):
     def post(self, request, format=None):
-        user_id = request.data.get('user_id')
+        user_email = request.data.get('user_email')
         flight_id = request.data.get('flight_id')
         num_of_tickets = request.data.get('num_of_tickets')
         
@@ -45,9 +45,10 @@ class TicketPurchaseView(APIView):
             flight = Flight.objects.select_for_update().get(pk=flight_id);
             if flight.get_status(num_of_tickets) == False:
                 return Response(status=status.HTTP_400_BAD_REQUEST)
-            user = User.objects.get(pk = user_id)
+            user = User.objects.get(email = user_email)
             for i in range(num_of_tickets):
                 ticket = Ticket(user=user,flight=flight)
                 ticket.save();
+                #Ticket.objects.create(user=user, flight=flight)
         return Response(status=status.HTTP_200_OK)
         
