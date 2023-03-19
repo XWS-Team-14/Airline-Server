@@ -49,5 +49,7 @@ class TicketPurchaseView(APIView):
             for i in range(num_of_tickets):
                 ticket = Ticket(user=user,flight=flight)
                 ticket.save();
+            flight.number_of_free_spaces = flight.number_of_free_spaces - num_of_tickets;
+            flight.save()
         return Response(status=status.HTTP_200_OK)
         
