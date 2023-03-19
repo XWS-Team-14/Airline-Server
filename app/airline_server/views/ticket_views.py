@@ -44,11 +44,10 @@ class TicketPurchaseView(APIView):
         with transaction.atomic():
             flight = Flight.objects.select_for_update().get(pk=flight_id);
             if flight.get_status(num_of_tickets) == False:
-                return Response(status=status.HTTP_400_BAD_REQUEST)
+                return Response({"Fail": "Unable to purchase tickets, flight departed or sold out."},status=status.HTTP_400_BAD_REQUEST)
             user = User.objects.get(email = user_email)
             for i in range(num_of_tickets):
                 ticket = Ticket(user=user,flight=flight)
                 ticket.save();
-                #Ticket.objects.create(user=user, flight=flight)
         return Response(status=status.HTTP_200_OK)
         
