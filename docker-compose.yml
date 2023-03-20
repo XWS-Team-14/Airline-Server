@@ -42,7 +42,7 @@ services:
 
   run-tests:
     image: app:latest
-    command: python manage.py test --verbosity 2 --parallel auto
+    command: python manage.py test --verbosity 2 --parallel 1
     depends_on:
       - mongo
       
