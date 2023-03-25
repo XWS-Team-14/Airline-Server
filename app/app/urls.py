@@ -10,7 +10,11 @@ from airline_server.views import RouteCreateView, RouteDeleteView, RouteDetailVi
 from airline_server.views import SearchList
 from airline_server.views.flight_views import FlightList, FlightCreateView, FlightDeleteView
 from airline_server.views import UserListView, UserDetailView, UserUpdateView, UserDeleteView
+
 from airline_server.views.route_views import RouteListViewWithPlaces
+
+from airline_server.views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, TicketPurchaseView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -51,5 +55,13 @@ urlpatterns = [
     path('api/auth/register/', include('dj_rest_auth.registration.urls')),
     path('api/auth/token/refresh/', get_refresh_view().as_view(), name='token_refresh'),
 
+
+    #Ticket views
+    path('api/ticket/', TicketCreateView.as_view(), name='ticket-create'),
+    path('api/ticket/<uuid:id>/', TicketListView.as_view(), name='ticket-detail'),
+    path('api/ticket/<uuid:id>/', TicketDetailView.as_view(), name='ticket-update'),
+    path('api/ticket/<uuid:id>/', TicketDeleteView.as_view(), name='ticket-delete'),
+    path('api/ticket/all/', TicketUpdateView.as_view(), name='ticket-all'),
+     path('api/ticket/purchase/', TicketPurchaseView.as_view(), name='ticket-purchase'),
 
 ]
