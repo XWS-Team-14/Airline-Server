@@ -2,6 +2,7 @@ from rest_framework import generics
 
 from ..models import Route
 from ..serializers import RouteSerializer
+from ..serializers.search_serializer import RouteOutputSerializer
 
 
 class RouteCreateView(generics.CreateAPIView):
@@ -30,3 +31,8 @@ class RouteUpdateView(generics.UpdateAPIView):
     queryset = Route.objects.all()
     serializer_class = RouteSerializer
     lookup_field = 'id'
+
+
+class RouteListViewWithPlaces(generics.ListAPIView):
+    queryset = Route.objects.all()
+    serializer_class = RouteOutputSerializer

@@ -46,3 +46,4 @@ Your migrations are created and documented automatically
 	- Have either a clean `app` ran or have only had data u want to persist to file
 	- Add data through the app's API
 	- **Up** `mongo-dumpdata` <span style="color:red">! Important - data in the old init file will be overwritten</span>
+
