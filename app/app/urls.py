@@ -8,10 +8,10 @@ from dj_rest_auth.jwt_auth import get_refresh_view
 from airline_server.views import PlaceCreateView, PlaceDeleteView, PlaceDetailView, PlaceListView, PlaceUpdateView
 from airline_server.views import RouteCreateView, RouteDeleteView, RouteDetailView, RouteListView, RouteUpdateView
 from airline_server.views import SearchList
-from airline_server.views.flight_views import FlightList, FlightCreateView, FlightDeleteView
+from airline_server.views import FlightList, FlightCreateView, FlightDeleteView
 from airline_server.views import UserListView, UserDetailView, UserUpdateView, UserDeleteView
 
-from airline_server.views.route_views import RouteListViewWithPlaces
+from airline_server.views import RouteListViewWithPlaces
 
 from airline_server.views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, TicketPurchaseView
 
@@ -41,7 +41,7 @@ urlpatterns = [
     # Flight
     path('api/flight/all', FlightList.as_view(), name='fight-all'),
     path('api/flight/', FlightCreateView.as_view(), name='fight-create'),
-    path('api/flight/delete/', FlightDeleteView.as_view(), name='fight-delete'),
+    path('api/flight/delete/<uuid:id>/', FlightDeleteView.as_view(), name='fight-delete'),
 
     # User views
     path('api/user/all', UserListView.as_view(), name='user-all'),
