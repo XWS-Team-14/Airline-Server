@@ -1,4 +1,5 @@
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -10,34 +11,40 @@ from airline_server.serializers.ticket_serializer import TicketSerializer
 
 
 class TicketCreateView(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
 
 
 class TicketListView(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
 
 
 class TicketDetailView(generics.RetrieveAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
     lookup_field = 'id'
 
 
 class TicketDeleteView(generics.DestroyAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
     lookup_field = 'id'
 
 
 class TicketUpdateView(generics.UpdateAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
     lookup_field = 'id'
 
 
 class TicketPurchaseView(APIView):
+    permission_classes = [IsAuthenticated]
     def post(self, request, format=None):
         user_email = request.data.get('user_email')
         flight_id = request.data.get('flight_id')
