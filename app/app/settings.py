@@ -49,6 +49,7 @@ REST_AUTH = {
     'JWT_AUTH_REFRESH_COOKIE': 'refresh-token',
     'LOGOUT_ON_PASSWORD_CHANGE': True,
     'REGISTER_SERIALIZER': 'airline_server.serializers.CustomRegisterSerializer',
+    'JWT_TOKEN_CLAIMS_SERIALIZER': 'airline_server.serializers.JwtSerializer',
 }
 
 SITE_ID = 1
@@ -157,7 +158,7 @@ LOGIN_REDIRECT_URL = "http://localhost:3000/"
 
 REST_AUTH_SERIALIZERS = {
     "USER_DETAILS_SERIALIZER": "airline_server.serializers.UserSerializer",
-    'REGISTER_SERIALIZER': 'airline_server.serializers.CustomRegisterSerializer'
+    'REGISTER_SERIALIZER': 'airline_server.serializers.CustomRegisterSerializer',
 }
 
 REST_FRAMEWORK = {
