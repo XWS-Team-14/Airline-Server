@@ -8,8 +8,14 @@ from dj_rest_auth.jwt_auth import get_refresh_view
 from airline_server.views import PlaceCreateView, PlaceDeleteView, PlaceDetailView, PlaceListView, PlaceUpdateView
 from airline_server.views import RouteCreateView, RouteDeleteView, RouteDetailView, RouteListView, RouteUpdateView
 from airline_server.views import SearchList
+from airline_server.views import FlightList, FlightCreateView, FlightDeleteView
 from airline_server.views import UserListView, UserDetailView, UserUpdateView, UserDeleteView
 from airline_server.views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, TicketPurchaseView
+
+from airline_server.views import RouteListViewWithPlaces
+
+from airline_server.views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, TicketPurchaseView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,9 +33,16 @@ urlpatterns = [
     path('api/route/<uuid:id>/', RouteUpdateView.as_view(), name='route-update'),
     path('api/route/<uuid:id>/', RouteDeleteView.as_view(), name='route-delete'),
     path('api/route/all/', RouteListView.as_view(), name='route-all'),
+    path('api/route/all/places/', RouteListViewWithPlaces.as_view(), name='route-all-places'),
 
     # Flight Search
     path('api/search/', SearchList.as_view(), name='search-flights'),
+
+
+    # Flight
+    path('api/flight/all', FlightList.as_view(), name='fight-all'),
+    path('api/flight/', FlightCreateView.as_view(), name='fight-create'),
+    path('api/flight/delete/<uuid:id>/', FlightDeleteView.as_view(), name='fight-delete'),
 
     # User views
     path('api/user/all', UserListView.as_view(), name='user-all'),
@@ -50,5 +63,4 @@ urlpatterns = [
     path('api/ticket/<uuid:id>/', TicketDeleteView.as_view(), name='ticket-delete'),
     path('api/ticket/all/', TicketUpdateView.as_view(), name='ticket-all'),
     path('api/ticket/purchase/', TicketPurchaseView.as_view(), name='ticket-purchase'),
-     
 ]

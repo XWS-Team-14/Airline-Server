@@ -12,4 +12,3 @@ class TicketReducedSerialiser(serializers.ModelSerializer):
         model = Ticket
         depth = 3
         fields = ['id', 'flight']
-        read_only_fields = ['id']
