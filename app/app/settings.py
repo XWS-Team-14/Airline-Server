@@ -16,12 +16,6 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '*'
 ]
-
-# REST Framework configs
-REST_FRAMEWORK = {
-    'DATETIME_FORMAT': '%d.%m.%Y %H:%M',
-}
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -168,4 +162,5 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 100,
     "COERCE_DECIMAL_TO_STRING": False,
+    'DATETIME_FORMAT': '%Y-%m-%d %H:%M',
 }
