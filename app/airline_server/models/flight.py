@@ -31,4 +31,4 @@ class Flight(models.Model):
 
         """
         return datetime.datetime.now().timestamp() < self.date_of_departure.timestamp() \
-            and self.number_of_free_spaces >= space_needed
+            and self.number_of_free_spaces >= int(space_needed)

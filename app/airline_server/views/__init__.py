@@ -4,3 +4,4 @@ from .search_views import SearchList
 from .user_views import UserListView, UserDetailView, UserUpdateView, UserDeleteView
 from .ticket_views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, TicketPurchaseView
 from .flight_views import FlightList, FlightCreateView, FlightDeleteView, FlightUpdateView
+

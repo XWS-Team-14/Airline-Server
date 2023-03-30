@@ -10,6 +10,7 @@ from airline_server.views import RouteCreateView, RouteDeleteView, RouteDetailVi
 from airline_server.views import SearchList
 from airline_server.views import FlightList, FlightCreateView, FlightDeleteView
 from airline_server.views import UserListView, UserDetailView, UserUpdateView, UserDeleteView
+from airline_server.views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, TicketPurchaseView
 
 from airline_server.views import RouteListViewWithPlaces
 
@@ -45,7 +46,7 @@ urlpatterns = [
 
     # User views
     path('api/user/all', UserListView.as_view(), name='user-all'),
-    path('api/user/<uuid:id>/', UserDetailView.as_view(), name='user-detail'),
+    path('api/user/<str:email>/', UserDetailView.as_view(), name='user-detail'),
     path('api/user/<uuid:id>/', UserUpdateView.as_view(), name='user-update'),
     path('api/user/<uuid:id>/', UserDeleteView.as_view(), name='user-delete'),
 
@@ -55,13 +56,11 @@ urlpatterns = [
     path('api/auth/register/', include('dj_rest_auth.registration.urls')),
     path('api/auth/token/refresh/', get_refresh_view().as_view(), name='token_refresh'),
 
-
     #Ticket views
     path('api/ticket/', TicketCreateView.as_view(), name='ticket-create'),
     path('api/ticket/<uuid:id>/', TicketListView.as_view(), name='ticket-detail'),
     path('api/ticket/<uuid:id>/', TicketDetailView.as_view(), name='ticket-update'),
     path('api/ticket/<uuid:id>/', TicketDeleteView.as_view(), name='ticket-delete'),
     path('api/ticket/all/', TicketUpdateView.as_view(), name='ticket-all'),
-     path('api/ticket/purchase/', TicketPurchaseView.as_view(), name='ticket-purchase'),
-
+    path('api/ticket/purchase/', TicketPurchaseView.as_view(), name='ticket-purchase'),
 ]
