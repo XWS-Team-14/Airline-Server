@@ -29,7 +29,7 @@ class FlightDeleteView(generics.RetrieveDestroyAPIView):
     lookup_field = 'id'
 
     def destroy(self, *args, **kwargs):
-        serializer = self.get_serializer(self.all())
+        serializer = self.get_serializer()
         super().destroy(*args, **kwargs)
         return Response(serializer.data)
 
