@@ -39,6 +39,12 @@ services:
       - ./app/airline_server/migrations:/app/airline_server/migrations
     depends_on:
       - mongo
+
+  run-tests:
+    image: app:latest
+    command: python manage.py test --verbosity 2 --parallel 1
+    depends_on:
+      - mongo
       
   app:
     build: ./app
