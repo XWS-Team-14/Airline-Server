@@ -81,7 +81,7 @@
     "pk": "262c8aa2-404c-4d0b-892b-ec31e412378e",
     "fields": {
       "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
-      "date_of_departure": "2023-03-23T20:10:00Z",
+      "date_of_departure": "2023-06-22T20:10:00Z",
       "ticket_price": 150.0,
       "number_of_seats": 20,
       "number_of_free_spaces": 20
@@ -114,7 +114,7 @@
     "pk": "4895e825-026c-4b54-8e54-b0448b6806e0",
     "fields": {
       "route": "8e4c5e57-a394-4a9d-a33f-c7226f8d9799",
-      "date_of_departure": "2023-06-23T20:10:00Z",
+      "date_of_departure": "2023-06-28T20:10:00Z",
       "ticket_price": 150.0,
       "number_of_seats": 20,
       "number_of_free_spaces": 20
