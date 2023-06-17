@@ -15,6 +15,7 @@ from airline_server.views import TicketCreateView, TicketListView, TicketDetailV
 from airline_server.views import RouteListViewWithPlaces
 
 from airline_server.views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, TicketPurchaseView
+from airline_server.views.search_views import SearchListSecond
 
 from airline_server.views.user_views import CreateApiKeyView
 
@@ -40,6 +41,7 @@ urlpatterns = [
 
     # Flight Search
     path('api/search/', SearchList.as_view(), name='search-flights'),
+    path('api/search-external/', SearchListSecond.as_view(), name='search-flights-external'),
 
 
     # Flight
