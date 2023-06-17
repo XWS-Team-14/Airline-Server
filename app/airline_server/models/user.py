@@ -38,7 +38,9 @@ class User(AbstractUser):
     email = models.EmailField(_('email address'), unique=True, error_messages={
         "unique": _("A user with that email address already exists."),
     }, )
-
+    api_key = models.CharField(max_length=100,blank=True, null=True)
+    valid_due = models.DateTimeField(blank=True, null=True)
+    
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
