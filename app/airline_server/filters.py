@@ -50,7 +50,6 @@ class SearchFlightFilterShorter(django_filters.FilterSet):
                                                    minute=converted_date.minute, second=converted_date.second)
         chosen_date_end = chosen_date_start.replace(hour=23, minute=59, second=59)
         for flight in flights:
-            print(flight.route.start_point.airport_city)
             if (flight.number_of_free_spaces >= int(params.get('space_needed'))) and\
                (flight.route.start_point.airport_city == params.get('start_city') or flight.route.start_point.country == params.get('start_country')) and\
                (flight.route.end_point.airport_city == params.get('end_city') or flight.route.end_point.country == params.get('end_country')) and\
