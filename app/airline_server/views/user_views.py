@@ -32,20 +32,22 @@ class UserUpdateView(generics.UpdateAPIView):
     serializer_class = UserSerializer
     lookup_field = 'id'
 
+
 class CreateApiKeyView(APIView):
-    #permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     def post(self, request, format=None):
         user_email = request.data.get('user_email')
-        valid_due = None if request.data.get('valid_due') is None else datetime.strptime(request.data.get('valid_due'), "%Y-%m-%d")
-        
+        valid_due = None if request.data.get('valid_due') is None else datetime.strptime(request.data.get('valid_due'),
+                                                                                         "%Y-%m-%d")
+
         with transaction.atomic():
             try:
                 user = User.objects.select_for_update().get(email=user_email)
             except User.DoesNotExist:
-                return Response({"Error":'No user with this email exists'},status=status.HTTP_404_NOT_FOUND)
-            
-            api_key = str(uuid.uuid4()).replace('-','')
+                return Response({"Error": 'No user with this email exists'}, status=status.HTTP_404_NOT_FOUND)
+
+            api_key = str(uuid.uuid4()).replace('-', '')
             user.api_key = api_key
             user.valid_due = valid_due
             user.save()
-        return Response({"APIkey":api_key},status=status.HTTP_200_OK)
+        return Response({"APIkey": api_key}, status=status.HTTP_200_OK)
