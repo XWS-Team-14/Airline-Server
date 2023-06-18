@@ -4,17 +4,19 @@ from django.urls import path
 from rest_framework_simplejwt.views import TokenVerifyView
 from dj_rest_auth.jwt_auth import get_refresh_view
 
-
 from airline_server.views import PlaceCreateView, PlaceDeleteView, PlaceDetailView, PlaceListView, PlaceUpdateView
 from airline_server.views import RouteCreateView, RouteDeleteView, RouteDetailView, RouteListView, RouteUpdateView
 from airline_server.views import SearchList
 from airline_server.views import FlightList, FlightCreateView, FlightDeleteView
 from airline_server.views import UserListView, UserDetailView, UserUpdateView, UserDeleteView
-from airline_server.views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, TicketPurchaseView
+from airline_server.views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, \
+    TicketPurchaseView
 
 from airline_server.views import RouteListViewWithPlaces
 
-from airline_server.views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, TicketPurchaseView
+from airline_server.views import TicketCreateView, TicketListView, TicketDetailView, TicketDeleteView, TicketUpdateView, \
+    TicketPurchaseView
+from airline_server.views.search_views import SearchListSecond
 
 from airline_server.views.user_views import CreateApiKeyView
 
@@ -40,7 +42,7 @@ urlpatterns = [
 
     # Flight Search
     path('api/search/', SearchList.as_view(), name='search-flights'),
-
+    path('api/search-external/', SearchListSecond.as_view(), name='search-flights-external'),
 
     # Flight
     path('api/flight/all', FlightList.as_view(), name='fight-all'),
@@ -52,7 +54,7 @@ urlpatterns = [
     path('api/user/<str:email>/', UserDetailView.as_view(), name='user-detail'),
     path('api/user/<uuid:id>/', UserUpdateView.as_view(), name='user-update'),
     path('api/user/<uuid:id>/', UserDeleteView.as_view(), name='user-delete'),
-    path('api/users/key/',CreateApiKeyView.as_view(), name='create-api-key'),
+    path('api/users/key/', CreateApiKeyView.as_view(), name='create-api-key'),
 
     # Auth views
     path('api/accounts/', include('allauth.urls')),
@@ -60,7 +62,7 @@ urlpatterns = [
     path('api/auth/register/', include('dj_rest_auth.registration.urls')),
     path('api/auth/token/refresh/', get_refresh_view().as_view(), name='token_refresh'),
 
-    #Ticket views
+    # Ticket views
     path('api/ticket/', TicketCreateView.as_view(), name='ticket-create'),
     path('api/ticket/<uuid:id>/', TicketListView.as_view(), name='ticket-detail'),
     path('api/ticket/<uuid:id>/', TicketDetailView.as_view(), name='ticket-update'),

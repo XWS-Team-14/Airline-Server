@@ -15,5 +15,274 @@
       "groups": [],
       "user_permissions": []
     }
+  },
+  {
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+      "domain": "example.com",
+      "name": "example.com"
+    }
+  },
+  {
+    "model": "airline_server.place",
+    "pk": "1f885de1-c928-4d63-ba9e-cb0b2efab100",
+    "fields": {
+      "country": "asds",
+      "airport_city": "asd",
+      "airport_name": "dasd"
+    }
+  },
+  {
+    "model": "airline_server.place",
+    "pk": "d2d9a674-b20f-4144-9c73-fe85a8400701",
+    "fields": {
+      "country": "Serbia",
+      "airport_city": "Belgrade",
+      "airport_name": "Nikola Tesla"
+    }
+  },
+  {
+    "model": "airline_server.place",
+    "pk": "f34b2f9c-bfd2-4ab8-a654-2f077a803ac6",
+    "fields": {
+      "country": "asds",
+      "airport_city": "asd",
+      "airport_name": "asddasd"
+    }
+  },
+  {
+    "model": "airline_server.place",
+    "pk": "f3e55822-f6e4-404b-8138-11ebc2e69baf",
+    "fields": {
+      "country": "US",
+      "airport_city": "New York",
+      "airport_name": "Maxiolim"
+    }
+  },
+  {
+    "model": "airline_server.route",
+    "pk": "61ae5491-3c66-4ade-b418-10d31b937e47",
+    "fields": {
+      "start_point": "f3e55822-f6e4-404b-8138-11ebc2e69baf",
+      "end_point": "d2d9a674-b20f-4144-9c73-fe85a8400701"
+    }
+  },
+  {
+    "model": "airline_server.route",
+    "pk": "8e4c5e57-a394-4a9d-a33f-c7226f8d9799",
+    "fields": {
+      "start_point": "d2d9a674-b20f-4144-9c73-fe85a8400701",
+      "end_point": "f3e55822-f6e4-404b-8138-11ebc2e69baf"
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "262c8aa2-404c-4d0b-892b-ec31e412378e",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-06-22T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "4506c945-f432-42ba-af80-831529cbfc4f",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "48502334-b3bc-4d59-9e85-b34902df38ca",
+    "fields": {
+      "route": "8e4c5e57-a394-4a9d-a33f-c7226f8d9799",
+      "date_of_departure": "2023-06-22T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "4895e825-026c-4b54-8e54-b0448b6806e0",
+    "fields": {
+      "route": "8e4c5e57-a394-4a9d-a33f-c7226f8d9799",
+      "date_of_departure": "2023-06-28T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "4a7bf9d0-71d6-441a-aecc-784827336382",
+    "fields": {
+      "route": "8e4c5e57-a394-4a9d-a33f-c7226f8d9799",
+      "date_of_departure": "2023-06-27T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "4f52df60-29a7-4ad6-9024-ff37bfcf715e",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-06-28T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "513fc793-5ade-4e87-992b-3e8ee0a1e65d",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-06-29T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "5af0a81a-a2a0-4ec9-b9b9-2ce7be393e0b",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-06-30T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "63baa9d3-7836-45d8-a3f8-92292803e6e7",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "6e8e3589-ab4b-42fc-a68e-ad4410ba2fba",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "73c1b49e-570d-45e5-bb66-22dfcb9cdc41",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T17:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "7b5cfc15-a111-475d-8752-2356e3cfb5e5",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "92dbf0ca-951b-4818-adb2-bcb9048e022f",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "9ed140c9-680c-4625-bfdf-ed26182ed8b1",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "ad4319ad-18bb-4c3a-889d-8f5d32710e49",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "bfdbd01e-8d16-4872-b0a9-462526acd2ca",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "ce3cb42c-4be8-4868-a5b6-10efb320d869",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "d04a4198-831b-404c-8178-a59e19d2e919",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
+  },
+  {
+    "model": "airline_server.flight",
+    "pk": "dfb2398d-506f-4427-b69c-33f5f5cdaec5",
+    "fields": {
+      "route": "61ae5491-3c66-4ade-b418-10d31b937e47",
+      "date_of_departure": "2023-03-23T20:10:00Z",
+      "ticket_price": 150.0,
+      "number_of_seats": 20,
+      "number_of_free_spaces": 20
+    }
   }
 ]
