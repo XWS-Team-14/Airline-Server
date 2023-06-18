@@ -19,8 +19,9 @@ from airline_server.views import TicketCreateView, TicketListView, TicketDetailV
 from airline_server.views.search_views import SearchListSecond
 
 from airline_server.views.user_views import CreateApiKeyView
-
+from airline_server.views.user_views import GetApiKeyView
 from airline_server.views.ticket_views import ApiKeyPurchaseView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -55,6 +56,7 @@ urlpatterns = [
     path('api/user/<uuid:id>/', UserUpdateView.as_view(), name='user-update'),
     path('api/user/<uuid:id>/', UserDeleteView.as_view(), name='user-delete'),
     path('api/users/key/', CreateApiKeyView.as_view(), name='create-api-key'),
+    path('api/fetch/key/', GetApiKeyView.as_view(), name='fetch-api-key'),
 
     # Auth views
     path('api/accounts/', include('allauth.urls')),
