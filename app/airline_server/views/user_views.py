@@ -37,7 +37,7 @@ class CreateApiKeyView(APIView):
     # permission_classes = [IsAuthenticated]
     def post(self, request, format=None):
         user_email = request.data.get('user_email')
-        valid_due = None if request.data.get('valid_due') is None else datetime.strptime(request.data.get('valid_due'),
+        valid_due = None if request.data.get('valid_due') == 'forever' else datetime.strptime(request.data.get('valid_due'),
                                                                                          "%Y-%m-%d")
 
         with transaction.atomic():
@@ -50,4 +50,19 @@ class CreateApiKeyView(APIView):
             user.api_key = api_key
             user.valid_due = valid_due
             user.save()
-        return Response({"APIkey": api_key}, status=status.HTTP_200_OK)
+        if user.valid_due is not None:
+            return Response({"APIkey": user.api_key, 'Validity': user.valid_due.strftime("%-d %B, %Y")}, status=status.HTTP_200_OK)
+        else:
+            return Response({"APIkey": user.api_key, 'Validity': 'Indefinite'}, status=status.HTTP_200_OK)
+
+class GetApiKeyView(APIView):
+    def post(self, request, format=None):
+        user_email = request.data
+        try:
+            user = User.objects.get(email=user_email)
+        except User.DoesNotExist:
+            return Response({"Error": 'No user with this email exists'}, status=status.HTTP_404_NOT_FOUND)
+        if user.valid_due is not None:
+            return Response({"APIkey": user.api_key, 'Validity': user.valid_due.strftime("%-d %B, %Y")}, status=status.HTTP_200_OK)
+        else:
+            return Response({"APIkey": user.api_key, 'Validity': 'Indefinite'}, status=status.HTTP_200_OK)
